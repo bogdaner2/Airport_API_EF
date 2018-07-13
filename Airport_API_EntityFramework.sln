@@ -4,8 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airport_API_EntityFramework", "Airport_API_EntityFramework\Airport_API_EntityFramework.csproj", "{A9451F6A-8817-433C-A0FB-03960407EE6B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ACED5241-9D78-4A06-97B9-4E5455225261} = {ACED5241-9D78-4A06-97B9-4E5455225261}
+		{E9602B66-718D-42A1-B345-1D5B758E7DA9} = {E9602B66-718D-42A1-B345-1D5B758E7DA9}
+		{1BDFD467-4F27-4EF2-B2AC-24AC9293B788} = {1BDFD467-4F27-4EF2-B2AC-24AC9293B788}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airport_REST_API.DataAccess", "..\..\Airport_WebApi-master\Airport_REST_API.DataAccess\Airport_REST_API.DataAccess.csproj", "{ACED5241-9D78-4A06-97B9-4E5455225261}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E9602B66-718D-42A1-B345-1D5B758E7DA9} = {E9602B66-718D-42A1-B345-1D5B758E7DA9}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airport_REST_API.Services", "..\..\Airport_WebApi-master\Airport_REST_API.Services\Airport_REST_API.Services.csproj", "{1BDFD467-4F27-4EF2-B2AC-24AC9293B788}"
 EndProject
