@@ -50,7 +50,7 @@ namespace Airport_API_EntityFramework.Controllers
             return result == true ? StatusCode(200) : StatusCode(500);
         }
 
-        // PUT api/ticket
+        // Delete api/ticket
         [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
