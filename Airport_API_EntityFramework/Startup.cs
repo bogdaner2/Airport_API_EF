@@ -8,6 +8,7 @@ using Airport_REST_API.Shared.DTO;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -26,18 +27,20 @@ namespace Airport_API_EntityFramework
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<DataSource>();
-            services.AddSingleton<ITicketService,TicketService>();
-            services.AddSingleton<IAircraftService, AircraftService>();
-            services.AddSingleton<IFlightService, FlightService>();
-            services.AddSingleton<IAircraftTypeService, AircraftTypeService>();
-            services.AddSingleton<ICrewService, CrewService>();
-            services.AddSingleton<IStewardessService, StewardessService>();
-            services.AddSingleton<IPilotService, PilotService>();
-            services.AddSingleton<IDepartureService,DepartureService>();
+            services.AddTransient<ITicketService,TicketService>();
+            services.AddTransient<IAircraftService, AircraftService>();
+            services.AddTransient<IFlightService, FlightService>();
+            services.AddTransient<IAircraftTypeService, AircraftTypeService>();
+            services.AddTransient<ICrewService, CrewService>();
+            services.AddTransient<IStewardessService, StewardessService>();
+            services.AddTransient<IPilotService, PilotService>();
+            services.AddTransient<IDepartureService,DepartureService>();
             services.AddSingleton<IUnitOfWork,UnitOfWork>();
-            services.AddSingleton<UnitOfWork>();
+            services.AddScoped<UnitOfWork>();
             var mapper = MapperConfiguration().CreateMapper();
             services.AddSingleton(_ => mapper);
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=AirportDB;Trusted_Connection=True;ConnectRetryCount=0";
+            services.AddDbContext<AirportContext>(options => options.UseSqlServer(connection));
             services.AddMvc();
         }
 
