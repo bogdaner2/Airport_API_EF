@@ -16,12 +16,12 @@ namespace Airport_REST_API.DataAccess
 
         public AirportContext(DbContextOptions<AirportContext> options) : base (options)
         {
-            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             
         }
+
     }
 }
