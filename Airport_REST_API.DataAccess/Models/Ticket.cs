@@ -9,7 +9,6 @@ namespace Airport_REST_API.DataAccess.Models
         [Required]
         public double Price { get; set; }
         [Required]
-        [MinLength(4)]
         public string Number { get; set; }
     }
 }

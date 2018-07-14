@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Airport_REST_API.Shared.DTO
@@ -8,6 +9,7 @@ namespace Airport_REST_API.Shared.DTO
         public int Id { get; set; }
 
         [Required]
+        [Range(1, Int32.MaxValue)]
         public int? PilotId { get; set; }
 
         [Required]

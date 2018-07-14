@@ -8,7 +8,7 @@ namespace Airport_REST_API.DataAccess.Models
         public int Id { get; set; }
 
         [Required]
-        [MinLength(3)]
+        [StringLength(maximumLength: 16, MinimumLength = 3)]
         public string Model { get; set; }
 
         [Required]
