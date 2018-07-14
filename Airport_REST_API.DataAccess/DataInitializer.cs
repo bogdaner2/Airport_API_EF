@@ -20,49 +20,49 @@ namespace Airport_REST_API.DataAccess
 
         public async Task Seed()
         {
-            if (_context.Aircrafts.Any())
+            if (!_context.Aircrafts.Any())
             {
                 Aircrafts.ForEach(i => _context.Aircrafts.Add(i));
                 await _context.SaveChangesAsync();
             }
 
-            if (_context.AircraftTypes.Any())
+            if (!_context.AircraftTypes.Any())
             {
                 AircraftTypes.ForEach(i => _context.AircraftTypes.Add(i));
                 await _context.SaveChangesAsync();
             }
 
-            if (_context.Pilots.Any())
+            if (!_context.Pilots.Any())
             {
                 Pilots.ForEach(i => _context.Pilots.Add(i));
                 await _context.SaveChangesAsync();
             }
 
-            if (_context.Crews.Any())
+            if (!_context.Crews.Any())
             {
                 Crews.ForEach(i => _context.Crews.Add(i));
                 await _context.SaveChangesAsync();
             }
 
-            if (_context.Stewardesses.Any())
+            if (!_context.Stewardesses.Any())
             {
                 Stewardesses.ForEach(i => _context.Stewardesses.Add(i));
                 await _context.SaveChangesAsync();
             }
 
-            if (_context.Tickets.Any())
+            if (!_context.Tickets.Any())
             {
                 Tickets.ForEach(i => _context.Tickets.Add(i));
                 await _context.SaveChangesAsync();
             }
 
-            if (_context.Flights.Any())
+            if (!_context.Flights.Any())
             {
                 Flights.ForEach(i => _context.Flights.Add(i));
                 await _context.SaveChangesAsync();
             }
 
-            if (_context.Departures.Any())
+            if (!_context.Departures.Any())
             {
                 Departureses.ForEach(i => _context.Departures.Add(i));
                 await _context.SaveChangesAsync();
@@ -89,11 +89,7 @@ namespace Airport_REST_API.DataAccess
         {
             new Stewardess
             {
-                FirstName = "Katya" ,LastName = "Puskina",DateOfBirth = new DateTime(1987,3,13),
-            },
-            new Stewardess
-            {
-                FirstName = "Onsana" ,LastName = "Ivanova",DateOfBirth = new DateTime(1987,3,13),
+                FirstName = "Natya" ,LastName = "Bondarenko",DateOfBirth = new DateTime(1987,3,13),
             }
         };
         public List<Pilot> Pilots = new List<Pilot>
@@ -110,7 +106,7 @@ namespace Airport_REST_API.DataAccess
              
               Pilot = new Pilot
               {
-                  FirstName = "Ivan" ,LastName = "Kotov",Experience = 10,DateOfBirth = new DateTime(1978,6,17)
+                  FirstName = "Oleg" ,LastName = "Nikolaev",Experience = 10,DateOfBirth = new DateTime(1978,6,17)
               },
               Stewardesses = new List<Stewardess>
               {
@@ -139,18 +135,18 @@ namespace Airport_REST_API.DataAccess
                 {                   
                     Pilot = new Pilot
                     {
-                        FirstName = "Ivan" ,LastName = "Kotov",Experience = 10,DateOfBirth = new DateTime(1978,6,17)
+                        FirstName = "Nikita" ,LastName = "Ogurchikov",Experience = 10,DateOfBirth = new DateTime(1978,6,17)
                     },
                     Stewardesses = new List<Stewardess>
                     {
                         new Stewardess
                         {
-                            FirstName = "Inna" ,LastName  = "Vlasova",DateOfBirth = new DateTime(1991,9,17)
+                            FirstName = "Katya" ,LastName = "Puskina",DateOfBirth = new DateTime(1987,3,13),
                         },
                         new Stewardess
                         {
-                            FirstName = "Yana" ,LastName = "Vlasova",DateOfBirth = new DateTime(1991,9,28),
-                        },
+                            FirstName = "Onsana" ,LastName = "Ivanova",DateOfBirth = new DateTime(1987,3,13),
+                        }
                     }
                 }
             }
