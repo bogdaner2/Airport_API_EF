@@ -60,20 +60,28 @@ namespace Airport_API_EntityFramework
             var config = new MapperConfiguration(cfg =>
             {
                 //Into Model
-                cfg.CreateMap<TicketDTO,Ticket>();
+                cfg.CreateMap<TicketDTO,Ticket>()
+                    .ForMember(i => i.Id, opt => opt.Ignore());
                 cfg.CreateMap<AircraftDTO, Aircraft>()
+                    .ForMember(i => i.Id, opt => opt.Ignore())
                     .ForMember(i => i.Type, opt => opt.Ignore())
                     .ForMember(i => i.Lifetime,opt => opt.MapFrom(m => DateTime.Now - DateTime.Parse(m.Lifetime)));
-                cfg.CreateMap<PilotDTO, Pilot>();
-                cfg.CreateMap<StewardessDTO, Stewardess>();
-                cfg.CreateMap<AircraftTypeDTO, AircraftType>();
+                cfg.CreateMap<PilotDTO, Pilot>()
+                    .ForMember(i => i.Id, opt => opt.Ignore());
+                cfg.CreateMap<StewardessDTO, Stewardess>()
+                    .ForMember(i => i.Id, opt => opt.Ignore());
+                cfg.CreateMap<AircraftTypeDTO, AircraftType>()
+                    .ForMember(i => i.Id, opt => opt.Ignore());
                 cfg.CreateMap<FlightDTO, Flight>()
+                    .ForMember(i => i.Id, opt => opt.Ignore())
                     .ForMember(i => i.ArrivalTime, opt => opt.MapFrom(m => DateTime.Parse(m.ArrivelTime)));
                 cfg.CreateMap<DeparturesDTO, Departures>()
+                    .ForMember(i => i.Id, opt => opt.Ignore())
                     .ForMember(i => i.Aircraft, opt => opt.Ignore())
                     .ForMember(i => i.Crew, opt => opt.Ignore())
                     .ForMember(i => i.DepartureTime, opt => opt.MapFrom(m => DateTime.Parse(m.DepartureTime)));
                 cfg.CreateMap<CrewDTO, Crew>()
+                    .ForMember(i => i.Id, opt => opt.Ignore())
                     .ForMember(i => i.Stewardesses, opt => opt.Ignore())
                     .ForMember(i => i.Pilot, opt => opt.Ignore());
                 //Into DTO
