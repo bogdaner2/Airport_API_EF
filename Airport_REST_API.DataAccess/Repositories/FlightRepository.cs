@@ -14,14 +14,13 @@ namespace Airport_REST_API.DataAccess.Repositories
             db = context;
         }
         public IEnumerable<Flight> GetAll()
-        {
-            
+        {            
             return db.Flights.Include(f => f.Ticket);
         }
 
         public Flight Get(int id)
         {
-            return db.Flights.FirstOrDefault(item => item.Id == id);
+            return GetAll().FirstOrDefault(item => item.Id == id);
         }
 
         public void Add(Flight entity)

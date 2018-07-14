@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Airport_REST_API.DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Airport_REST_API.DataAccess.Repositories
 {
@@ -14,12 +15,12 @@ namespace Airport_REST_API.DataAccess.Repositories
         }
         public IEnumerable<Departures> GetAll()
         {
-            return db.Departures;
+            return db.Departures.Include(d => d.Aircraft).Include(c => c.Crew);
         }
 
         public Departures Get(int id)
         {
-            return db.Departures.FirstOrDefault(item => item.Id == id);
+            return GetAll().FirstOrDefault(item => item.Id == id);
         }
 
         public void Add(Departures entity)

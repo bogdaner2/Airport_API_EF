@@ -49,6 +49,8 @@ namespace Airport_REST_API.Services.Service
             if (stewardesses.Count == 0 || pilot == null)
                 return false; 
             var crew = _mapper.Map<Crew>(obj);
+            crew.Pilot = pilot;
+            crew.Stewardesses = stewardesses;
             db.Crews.Add(crew);
             db.Save();
             return true;

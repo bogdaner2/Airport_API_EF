@@ -15,7 +15,7 @@ namespace Airport_REST_API.DataAccess.Repositories
         }
         public IEnumerable<Crew> GetAll()
         {
-            return db.Crews.Include(c => c.Stewardesses);
+            return db.Crews.Include(c => c.Stewardesses).Include(c => c.Pilot);
         }
 
         public Crew Get(int id)
