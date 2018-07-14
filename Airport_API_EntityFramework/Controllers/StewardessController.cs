@@ -16,7 +16,7 @@ namespace Airport_API_EntityFramework.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(_service.GetData());
+            return Ok(_service.GetCollection());
         }
 
         // GET api/Stewardess/:id
@@ -34,8 +34,8 @@ namespace Airport_API_EntityFramework.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var result = _service.AddObject(stewardess);
-            return result == true ? StatusCode(200) : StatusCode(404);
+            var result = _service.Add(stewardess);
+            return result == true ? StatusCode(200) : StatusCode(500);
         }
 
         // PUT api/Stewardess
@@ -46,8 +46,8 @@ namespace Airport_API_EntityFramework.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var result = _service.UpdateObject(id,stewardess);
-            return result == true ? StatusCode(200) : StatusCode(404);
+            var result = _service.Update(id,stewardess);
+            return result == true ? StatusCode(200) : StatusCode(500);
         }
 
         // PUT api/Stewardess
@@ -55,7 +55,7 @@ namespace Airport_API_EntityFramework.Controllers
         public IActionResult Delete(int id)
         {
             var result = _service.RemoveObject(id);
-            return result == true ? StatusCode(200) : StatusCode(404);
+            return result == true ? StatusCode(200) : StatusCode(500);
         }
     }
 }
